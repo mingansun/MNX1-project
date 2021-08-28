@@ -21,10 +21,15 @@ for(i in 1:dim(m)[2]){
 
 png(file="Mnx1_ortholog_conservation.png", width = 6000, height = 1600, res = 600)
 par(mar=c(0,6,0,0))
-plot(d[,1], d[,2], type="h", lwd = 3, xlim=c(0,610), ylim=c(0,9), col = "grey", 
-     yaxt = "n", xlab = "", ylab = "", bty = "n", axes = FALSE)
-axis(side = 2, at = c(8:2, 0.2), tick = FALSE, 
-     labels = c("Human", "Mouse", "Dog", "Chicken", "Xenopus", "Zebrafish", "Fruit fly", "Conservation"), las = 2)
+plot(
+  d[,1], d[,2], type="h", lwd = 3, xlim=c(0,610), ylim=c(0,9), col = "grey", 
+  yaxt = "n", xlab = "", ylab = "", bty = "n", axes = FALSE
+)
+axis(
+  side = 2, at = c(8:2, 0.2), tick = FALSE, 
+  labels = c("Human", "Mouse", "Dog", "Chicken", "Xenopus", "Zebrafish", "Fruit fly", "Conservation"),
+  las = 2
+)
 for(i in 1:dim(m)[1]){
   for(j in 1:dim(m)[2]){
     if(m[i,j] == 1){
@@ -35,7 +40,9 @@ for(i in 1:dim(m)[1]){
       w = 0.03
       col = "grey"
     }
-    rect(xleft = j, xright = j+1, ybottom = 9 - i + w, ytop = 9 - i - w, col = col, border = NA)
+    rect(
+      xleft = j, xright = j+1, ybottom = 9 - i + w, ytop = 9 - i - w, col = col, border = NA
+    )
   }
 }
 
